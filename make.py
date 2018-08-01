@@ -194,7 +194,7 @@ def run_task_build_ios(ios_archs, ios_configurations):
             debug('Generating files to arch "{0}" and configuration "{1}"...'.format(arch, config))
 
             arg_is_debug = ('true' if config == 'debug' else 'false')
-            args = 'target_os="ios" target_cpu="{0}" use_goma=false is_debug={1} pdf_use_skia=false pdf_use_skia_paths=false pdf_enable_xfa=false pdf_enable_v8=false pdf_is_standalone=true is_component_build=false clang_use_chrome_plugins=false ios_enable_code_signing=false enable_ios_bitcode=true'.format(arch, arg_is_debug)
+            args = 'target_os="ios" target_cpu="{0}" use_goma=false is_debug={1} pdf_use_skia=false pdf_use_skia_paths=false pdf_enable_xfa=false pdf_enable_v8=false pdf_is_standalone=true is_component_build=false clang_use_chrome_plugins=false ios_enable_code_signing=false enable_ios_bitcode=true symbol_level=0'.format(arch, arg_is_debug)
             command = ' '.join([gn_tool, 'gen', 'out/{0}-{1}'.format(config, arch), '--args=\'{0}\''.format(args)])
             call(command, shell=True)
 
